@@ -1,0 +1,226 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainrots Limitados Gratis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #1e3c72, #000066);
+            color: #fff;
+            font-family: 'Russo One', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-y: auto;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(30, 60, 114, 0.3), transparent 70%);
+            opacity: 0.5;
+            z-index: -1;
+            animation: wave 8s infinite ease-in-out;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 4.5em;
+            margin-bottom: 25px;
+            color: #00b7eb;
+            text-shadow: 0 0 12px #00b7eb, 0 0 24px #1e90ff;
+            letter-spacing: 2px;
+        }
+
+        .image-placeholder {
+            width: 320px;
+            height: 220px;
+            background-color: #1a1a3d;
+            margin: 0 auto 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #b0c4de;
+            border: 4px solid #00b7eb;
+            border-radius: 15px;
+            box-shadow: 0 0 15px #00b7eb;
+        }
+
+        button {
+            background: linear-gradient(to right, #1e90ff, #00b7eb);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.4em;
+            cursor: pointer;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 12px #1e90ff;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #00b7eb, #1e90ff);
+            transform: translateY(-3px);
+        }
+
+        .grid {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            padding: 20px;
+        }
+
+        .item {
+            background: #1a1a3d;
+            padding: 12px;
+            border: 2px solid #00b7eb;
+            border-radius: 10px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 0 10px #00b7eb;
+        }
+
+        .item-image {
+            width: 160px;
+            height: 160px;
+            background-color: #2c2c5e;
+            margin: 0 auto 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #b0c4de;
+            border: 2px solid #1e90ff;
+            border-radius: 8px;
+        }
+
+        .item-title {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #00b7eb;
+        }
+
+        .item-remaining {
+            font-size: 0.85em;
+            color: #b0c4de;
+            margin-bottom: 12px;
+        }
+
+        .item-button {
+            background: linear-gradient(to right, #1e90ff, #00b7eb);
+            color: #fff;
+            box-shadow: 0 0 8px #1e90ff;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        .item-button:hover {
+            background: linear-gradient(to right, #00b7eb, #1e90ff);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="initial-content">
+            <h1>brainrots limitados gratis</h1>
+            <div class="image-placeholder">
+                <img src="imagen.png" alt="Imagen Principal" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <button onclick="showGrid()">Mostrar Items</button>
+        </div>
+        <div id="grid" class="grid"></div>
+    </div>
+
+    <script>
+        function showGrid() {
+            document.getElementById('initial-content').style.display = 'none';
+            const grid = document.getElementById('grid');
+            grid.style.display = 'grid';
+
+            const items = [
+                { title: 'imagen1.jpg' },
+                { title: '2. bicicleteira', image: 'imagen2.jpg' },
+                { title: '3. tacorita bicicleta', image: 'imagen3.jpg' },
+                { title: '4. lucky block ying yang', image: 'imagen4.jpg' },
+                { title: '5. 67', image: 'imagen5.jpg' },
+                { title: '6. hotspost', image: 'imagen6.jpg' }
+            ];
+
+            items.forEach(item => {
+                const randomRemaining = Math.floor(Math.random() * 10) + 1;
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'item';
+                itemDiv.innerHTML = `
+                    <div class="item-image">
+                        <img src="${item.image}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="item-title">${item.title}</div>
+                    <div class="item-remaining">Quedan ${randomRemaining}</div>
+                    <button class="item-button" onclick="window.location.href='https://www.roblox.com/share?code=7eaa98de81a5d44388e6da0a59c5f6cb&type=Server'">Ir</button>
+                `;
+                grid.appendChild(itemDiv);
+            });
+        }
+    </script>
+</body>
+</html>
